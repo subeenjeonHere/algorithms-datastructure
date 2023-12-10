@@ -1,2 +1,4 @@
-package n2018;public class Main {
-}
+package n2018;
+
+import java.util.Arrays;
+import java.util.Scanner;
