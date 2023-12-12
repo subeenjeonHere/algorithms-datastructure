@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         //수열의 개수
         int n = sc.nextInt();
         //나누어 떨어져야 하는 수
@@ -27,7 +26,7 @@ public class Main {
         }
         for (int i = 0; i < s.length; i++) {//합배열에 % 연산 수행
             int remainder = (int) (s[i] % m);
-            // 0~i 까지 구간합 자체가 0일 때 정답에 더하기
+            // ₩₩0~i 까지 구간합 자체가 0일 때 정답에 더하기
             if (remainder == 0)
                 answer++;
             //나머지 같은 인덱스의 개수 카운팅하기
