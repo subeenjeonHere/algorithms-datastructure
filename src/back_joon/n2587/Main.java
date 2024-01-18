@@ -1,4 +1,4 @@
-package n2587;
+package back_joon.n2587;
 
 import java.util.Arrays;
 import java.util.Scanner;

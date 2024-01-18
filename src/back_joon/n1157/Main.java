@@ -1,4 +1,4 @@
-package n1157;
+package back_joon.n1157;
 
 import javax.lang.model.type.ArrayType;
 import java.util.Arrays;
@@ -7,17 +7,8 @@ import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        StringTokenizer stk = new StringTokenizer(sc.nextLine());
-        String line = null;
-        String[] arr = new String[line.length()];
-        //char Array에 입력받아야 함
 
-        for (int i = 0; i < arr.length; i++) {
-        arr[i]  = stk.nextToken();
-        }
-        System.out.println(Arrays.toString(arr));
     }
 }
 

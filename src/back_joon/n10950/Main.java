@@ -1,4 +1,4 @@
-package n10950;
+package back_joon.n10950;
 
 import java.util.Scanner;
 

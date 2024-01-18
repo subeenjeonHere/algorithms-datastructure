@@ -1,4 +1,4 @@
-package n2783;
+package back_joon.n2783;
 
 import java.io.BufferedReader;
 import java.io.IOException;
