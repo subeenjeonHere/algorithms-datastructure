@@ -34,6 +34,7 @@ public class MergeSort {
             rightharf[i] = numbers[i]; // 배열 오른쪽 절반을 오른족 배열에 채움
         }
 
+
         mergesort(leftharf);
         mergesort(rightharf);
 
