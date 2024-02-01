@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * chap. 1260 sec. DFS, BFS
  */
-public class Main {
+public class Main2 {
     static ArrayList<Integer> arr[];
     static boolean visited[];
 
@@ -17,7 +17,7 @@ public class Main {
         while (!qu.isEmpty()) {
             int nowNode = qu.poll();
 
-            System.out.printf(nowNode + " ");
+            System.out.print(nowNode + " ");
 
             for (int ele : arr[nowNode]) {
                 if (!visited[ele]) {
@@ -28,11 +28,11 @@ public class Main {
         }
     }
 
+    //recursively
     private static void DFS(int node) {
-
-
-        System.out.printf(node + " ");
+        System.out.print(node + " ");
         visited[node] = true;
+
 
         // ✳ 방문하지 않은 node 탐색 -> 방문하지 않은 node들 재귀호출
         for (int ele : arr[node]) {
@@ -55,7 +55,6 @@ public class Main {
         for (int i = 1; i <= N; i++) {
             arr[i] = new ArrayList<Integer>();
         }
-
         for (int i = 0; i < M; i++) {
             int nd1 = sc.nextInt();
             int nd2 = sc.nextInt();
