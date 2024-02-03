@@ -23,9 +23,6 @@ class Main2 {
         visited[i][j] = true;
         countPer++;
 
-        if (i >= 0 && j >= 00) {
-
-        }
 
     }
 

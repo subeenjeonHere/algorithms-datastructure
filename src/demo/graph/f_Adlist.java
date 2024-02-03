@@ -2,7 +2,7 @@ package demo.graph;
 
 import java.util.ArrayList;
 
-public class Main_Adlist {
+public class f_Adlist {
 
     public static void putEdge(ArrayList<ArrayList<Integer>> graphTo, int x, int y) {
         graphTo.get(x).add(y);
