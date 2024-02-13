@@ -1,8 +1,5 @@
 package demo.countingSort;
 
-
-import javax.security.auth.login.CredentialNotFoundException;
-
 public class CountingSort {
     public static void main(String[] args) {
         int[] data = {3, 5, 1, 4, 1, 2, 2, 3, 4, 7};
