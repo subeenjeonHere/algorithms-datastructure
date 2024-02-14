@@ -1,6 +1,7 @@
 package prog.lv1.같은숫자는싫어;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Stack;
 
 public class Main {
@@ -37,6 +38,14 @@ public class Main {
         }
         System.out.println(sb);
 
+        // 스택은  한 쪽 에서만 Push,Pop 하는 LIFO 형식이므로 역순으로 ans에 저장될것임
+        // 첫 번째로 pop되는 게 가장 나중에 들어온 원소임. 첫 번째 pop을 ans의 맨 마지막에 저장해줘야 한다.
+        // ans 길이는 stk.size:4, 3,2,1,0 으로 감소하며 ans[0++]에 저장되어야 한다.
+        int[] ans = new int[stk.size()];
+        for (int i = ans.length - 1; i >= 0; i--) {
+            ans[i] = stk.pop();
+        }
 
+        System.out.println("Answer: " + Arrays.toString(ans));
     }
 }
