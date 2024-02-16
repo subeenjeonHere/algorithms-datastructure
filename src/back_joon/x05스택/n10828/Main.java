@@ -14,7 +14,6 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < n; i++) {
-
             // 토큰에 input 저장
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
             int count = st.countTokens();
