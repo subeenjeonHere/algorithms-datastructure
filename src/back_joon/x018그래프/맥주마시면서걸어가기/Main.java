@@ -1,10 +1,8 @@
-package back_joon.맥주마시면서걸어가기;
+package back_joon.x018그래프.맥주마시면서걸어가기;
 /**
  * @Solution: BFS
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
