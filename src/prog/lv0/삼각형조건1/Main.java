@@ -1,7 +1,6 @@
 package prog.lv0.삼각형조건1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
