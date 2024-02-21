@@ -10,7 +10,7 @@ public class Main {
         for (int i = 0; i <= n; i++) {
             if (n % x == 1) {
                 System.out.println(x);
-                return;
+                break;
             } else {
                 x++;
             }

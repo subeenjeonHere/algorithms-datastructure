@@ -31,14 +31,6 @@ public class Main {
             }
         }
 
-//        for (int i = 0; i < 1; i++) {
-//            for (int j = 1; j < chars.length; j++) {
-//
-//                if (chars[i] == chars[j]) {
-//                    result++;
-//                }
-//            }
-//        }
         System.out.println(result);
 
     }
