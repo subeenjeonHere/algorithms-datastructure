@@ -22,7 +22,7 @@ public class Main {
             int x = Integer.parseInt(br.readLine());
 
             // start < x라면, start 부터 x 까지 삽입해줘야 함
-            // 어디까지 입력 받았는지 알기 위해, start를 x로 초기화 (x까지 입력했기 때문에 5부터 push해주기 위함)
+            // 어디까지 입력 받았는지 알기 위해, start를 x로 초기화 (x까지 입력 했기 때문에 5부터 push해주기 위함)
             // 4까지 입력, 6을 push하기 위해 next 5부터 입력되어야 함
             if (start < x) {
                 for (int i = start + 1; i <= x; i++) {
