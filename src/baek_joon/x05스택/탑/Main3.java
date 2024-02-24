@@ -1,15 +1,13 @@
 package baek_joon.x05스택.탑;
 
+import javax.imageio.IIOException;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.Collections;
 import java.util.Stack;
 
-public class Main2 {
-    /**
-     * @param args
-     */
+public class Main3 {
     public static void main(String[] args) throws IOException {
 
         Stack<Integer> stack = new Stack<>();
@@ -19,32 +17,20 @@ public class Main2 {
 
         int n = Integer.parseInt(br.readLine());
 
-        //스택에 push
+        // n 입력받고 스택에 push
         String[] tokens = br.readLine().split(" ");
         for (String token : tokens) {
             if (!token.trim().isEmpty()) {
                 stack.push(Integer.parseInt(token.trim()));
             }
         }
+        /**
+         *
+         */
 
 
-        while (!stack.isEmpty()) {
-            int peek = stack.peek();
+        System.out.println(stack);
 
-            //top을 기준으로 순회하는 for문
-            for (int j = stack.size() - 1; j >= 0; j--) {
-                if (peek < stack.get(j)) {
-                    stack.pop();
-                    sb.append(j + 1).append(" ");
-                    break;
-                }
-            }
 
-            if (peek == stack.peek()) {
-                stack.pop();
-                sb.append("0").append(" ");
-            }
-        }
-        System.out.println(sb.reverse().toString().trim());
     }
 }
