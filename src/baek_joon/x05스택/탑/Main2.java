@@ -40,6 +40,7 @@ public class Main2 {
                 }
             }
 
+
             if (peek == stack.peek()) {
                 stack.pop();
                 sb.append("0").append(" ");
