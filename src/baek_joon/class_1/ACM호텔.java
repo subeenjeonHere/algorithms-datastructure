@@ -14,19 +14,27 @@ public class ACM호텔 {
         for (int i = 0; i < t; i++) {
             StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
 
-
             int h = Integer.parseInt(stk.nextToken());
             int w = Integer.parseInt(stk.nextToken());
             int n = Integer.parseInt(stk.nextToken());
 
-            int row = n % h;
-            int col = (n / h) + 1;
-            System.out.println("층 / 사람 몫 : " + h / n);
-            System.out.println();
-            if (col <= 9) {
-                System.out.println(row + "0" + col);
+//            System.out.println("층 / 사람 몫 : " + h / n);
+            if (n % h == 0) {
+                int row = h;
+                int col = n / h;
+                if (col <= 9) {
+                    System.out.println(row + "0" + col);
+                } else {
+                    System.out.println(row + "" + col);
+                }
             } else {
-                System.out.println(row + "" + col);
+                int row = n % h;
+                int col = (n / h) + 1;
+                if (col <= 9) {
+                    System.out.println(row + "0" + col);
+                } else {
+                    System.out.println(row + "" + col);
+                }
             }
 
         }
