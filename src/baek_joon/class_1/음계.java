@@ -15,23 +15,47 @@ public class 음계 {
         //배열 저장
         for (int i = 0; i < arr.length; i++) {
             arr[i] = Integer.parseInt(stk.nextToken());
+
+//            if (i + 1 == arr[i]) {
+//                System.out.println("Ascending");
+//            } else if (arr.length - 1 - i == arr[i]) {
+//                System.out.println("Descending");
+//            } else {
+//                System.out.println("Mixed");
+//            }
         }
+/**
+ * 12346678이면 asc
+ * 87654321이면 desc
+ * +1씩 증가하는 것에 포인터
+ *
+ */
+        int go = 1;
+        int asc = 0;
+        int desc = 0;
+        int mix = 0;
+        //len 8
 
-        //값 비교
-        int start = 1;
-        int max = arr[0];
-        while (start < arr.length && max != arr[start]) {
-            if (arr[start] > arr[start - 1]) {
-                if (arr[start] < arr[start - 1]) {
-                    System.out.println("mixed");
-                    return;
-                }
-                System.out.println("ascending");
+        while (go < arr.length) {
+            if (arr[go - 1] < arr[go]) {
+                // 01, 12, 23, 34, 45, 56, 67
+                asc++;
 
-            } else if (arr[start] < arr[start - 1] && max == arr[start]) {
-                System.out.println("descending");
             }
-            start++;
+            if (arr[0] == 8 && arr[go - 1] > arr[go]) {
+                desc++;
+            }
+            go++;
         }
+
+        if (asc == 7) {
+            System.out.println("ascending");
+        } else if (desc == 7) {
+            System.out.println("descending");
+        } else {
+            System.out.println("mixed");
+        }
+
+
     }
 }
