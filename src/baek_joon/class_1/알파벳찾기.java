@@ -28,7 +28,7 @@ public class 알파벳찾기 {
             array[i] = String.valueOf(s.charAt(i));
         }
 
-        int[] result = new int[25];
+        int[] result = new int[26];
 
         for (int j = 0; j < array.length; j++) {
             int c = array[j].charAt(0);
@@ -40,12 +40,17 @@ public class 알파벳찾기 {
         for (int x = 0; x < result.length; x++) {
 
             //String 의 0번째 위치에 있는 값이 0인데, 이 때 -1도 대입되는 현상
-
             if (result[x] == 0) {
                 result[x] = -1;
             }
         }
-        result[array[0].charAt(0) - 97] = 0;
-        System.out.println(Arrays.toString(result));
+        int zero = array[0].charAt(0) - 97;
+        result[zero] = 0;
+
+        StringBuilder sb = new StringBuilder();
+        for (int ele : result) {
+            sb.append(ele).append(" ");
+        }
+        System.out.println(sb.toString().trim());
     }
 }
