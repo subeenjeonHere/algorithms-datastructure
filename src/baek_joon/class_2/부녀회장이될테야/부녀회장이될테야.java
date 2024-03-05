@@ -1,4 +1,4 @@
-package baek_joon.class_2;
+package baek_joon.class_2.부녀회장이될테야;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,9 +18,9 @@ public class 부녀회장이될테야 {
 
         // 0층 1- 14호 사람 채운다
         int[] array = new int[15];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
-        }
+//        for (int i = 0; i < array.length; i++) {
+//            array[i] = i + 1;
+//        }
 
         //1층 3호면 0층의 1~3호까지 누적합
         //2층 3호면 1층 1~3호까지 누적합
@@ -40,10 +40,16 @@ public class 부녀회장이될테야 {
             //1층 3호일 때 1, 2, 3
             //3층 3호일 때 123 / 1 123 / 2 123
 
-            s3array[0] = array[0];
             int start = 1;
+
+            for (int p = 0; p < array.length; p++) {
+                array[p] = p + 1;
+            }
+            s3array[0] = array[0];
+
             while (start <= k) {
 
+                System.out.println("START: " + start);
                 for (int x = 1; x <= array.length; x++) {
                     if (x > n) {
                         break;
@@ -57,11 +63,9 @@ public class 부녀회장이될테야 {
                 //누적합으로 반복하니 sb에 전체 추가됨, 3층 10호일 땐 3층 10호만 count 해야하는데 1,2층까지 같이 count
 
                 start++;
-
             }
             sb.append(s3array[n - 1]).append("\n");
         }
-
         System.out.println(sb.toString().trim());
 
     }

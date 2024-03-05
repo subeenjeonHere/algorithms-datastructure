@@ -1,4 +1,4 @@
-package baek_joon.class_2;
+package baek_joon.class_2.스택;
 
 import java.io.BufferedReader;
 import java.io.IOException;
