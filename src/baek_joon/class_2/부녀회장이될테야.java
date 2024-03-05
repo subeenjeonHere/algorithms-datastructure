@@ -15,36 +15,54 @@ public class 부녀회장이될테야 {
         Scanner sc = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        //14호까지 0층에 사람들을 채워준다
+
+        // 0층 1- 14호 사람 채운다
         int[] array = new int[15];
         for (int i = 0; i < array.length; i++) {
             array[i] = i + 1;
         }
-        //테스트 케이스
 
-//        int[] s3array = new int[array.length];
+        //1층 3호면 0층의 1~3호까지 누적합
+        //2층 3호면 1층 1~3호까지 누적합
+        //3층 3호면 2층 1~3호까지의 누적합
+        /**
+         * a/t
+         * 3층 3호 사람 수를 구하기 위해 누적합을 0층부터 차례로 구해야 하는지
+         * 호근 다른 방법으로 구할 수 있는지 체크
+         */
+
         int tc = sc.nextInt();
+        s3array = new int[15];
+        for (int i = 1; i <= tc; i++) {
 
-        for (int x = 1; x <= tc; x++) {
-            k = sc.nextInt();
-            n = sc.nextInt();
+            int k = sc.nextInt();
+            int n = sc.nextInt();
+            //1층 3호일 때 1, 2, 3
+            //3층 3호일 때 123 / 1 123 / 2 123
 
-            //3층이면 1,2,3 누적합을 구해와야 함
-            for (int st = 1; st <= k; st++) {
-                s3array = new int[array.length];
+            s3array[0] = array[0];
+            int start = 1;
+            while (start <= k) {
 
-                //누적합의 0번은 원본 0번째와 항상 동일하므로 초기화
-                s3array[0] = array[0];
-                //1층 누적합
-                for (int i = 1; i < 14; i++) {
-                    s3array[i] = s3array[i - 1] + array[i];
+                for (int x = 1; x <= array.length; x++) {
+                    if (x > n) {
+                        break;
+                    }
+                    s3array[x] = s3array[x - 1] + array[x];
                 }
                 array = s3array;
 
-                System.out.println(Arrays.toString(s3array));
-                sb.append(s3array[n - 1]).append("\n");
+//                System.out.print("누적합::" + Arrays.toString(s3array));
+
+                //누적합으로 반복하니 sb에 전체 추가됨, 3층 10호일 땐 3층 10호만 count 해야하는데 1,2층까지 같이 count
+
+                start++;
+
             }
+            sb.append(s3array[n - 1]).append("\n");
         }
+
         System.out.println(sb.toString().trim());
+
     }
 }
