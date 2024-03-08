@@ -28,7 +28,6 @@ public class Main2 {
                 cnt5 += 1;
                 break;
             }
-
             //n이 음수가 될 경우
             if (n < 0) {
                 System.out.println("N3: " + n);
