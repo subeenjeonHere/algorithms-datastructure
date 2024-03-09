@@ -31,29 +31,48 @@ public class Main {
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.get(i).add(String.valueOf(i));
         }
+        arrayList.sort(new Comparator<ArrayList<String>>() {
+            @Override
+            public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+                int a1 = Integer.parseInt(o1.get(0));
+                int a2 = Integer.parseInt(o2.get(0));
+                return Integer.compare(a1, a2);
+            }
+        });
+        arrayList.sort(new Comparator<ArrayList<String>>() {
+            @Override
+            public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+                int age1 = Integer.parseInt(o1.get(0));
+                int age2 = Integer.parseInt(o2.get(0));
+                int idx1 = Integer.parseInt(o1.get(2));
+                int idx2 = Integer.parseInt(o2.get(2));
+                if (age1 == age2 && idx1 > idx2) {
+
+                    return Integer.compare(idx1, idx2);
+                }
+                return 0;
+
+            }
+        });
 
         // 정렬 나이순, 나이 같으면 가입순
         // 나이가 같다면, idx를 보고 판단
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = i + 1; j < arrayList.size(); j++) {
-                int age1 = Integer.parseInt(arrayList.get(i).get(0));
-                int age2 = Integer.parseInt(arrayList.get(j).get(0));
-                int idx1 = Integer.parseInt(arrayList.get(i).get(2));
-                int idx2 = Integer.parseInt(arrayList.get(j).get(2));
-
-//                System.out.println("get(i): " + arrayList.get(i));
-//                System.out.println("get(2): " + arrayList.get(i).get(2));
-
-                //나이 순 오름차순 정렬
-                if ((age1 == age2 && idx1 > idx2) || age1 > age2) {
-                    //Swap
+//        for (int i = 0; i < arrayList.size(); i++) {
+//            for (int j = i + 1; j < arrayList.size(); j++) {
+//                int age1 = Integer.parseInt(arrayList.get(i).get(0));
+//                int age2 = Integer.parseInt(arrayList.get(j).get(0));
+//                int idx1 = Integer.parseInt(arrayList.get(i).get(2));
+//                int idx2 = Integer.parseInt(arrayList.get(j).get(2));
+//                //나이 순 오름차순 정렬
+//                if ((age1 == age2 && idx1 > idx2) || age1 > age2) {
+//                    //Swap
 //                    ArrayList<String> temp = new ArrayList<>(arrayList.get(i));
 //                    arrayList.set(i, new ArrayList<>(arrayList.get(j)));
 //                    arrayList.set(j, new ArrayList<>(temp));
-                    Collections.swap(arrayList, i, j);
-                }
-            }
-        }
+//                }
+//            }
+//        }
+
 
         for (ArrayList<String> row : arrayList) {
             row.remove(2);
