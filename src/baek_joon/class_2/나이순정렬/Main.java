@@ -47,7 +47,6 @@ public class Main {
                 int idx1 = Integer.parseInt(o1.get(2));
                 int idx2 = Integer.parseInt(o2.get(2));
                 if (age1 == age2 && idx1 > idx2) {
-
                     return Integer.compare(idx1, idx2);
                 }
                 return 0;
@@ -55,8 +54,8 @@ public class Main {
             }
         });
 
-        // 정렬 나이순, 나이 같으면 가입순
-        // 나이가 같다면, idx를 보고 판단
+//         정렬 나이순, 나이 같으면 가입순
+//         나이가 같다면, idx를 보고 판단
 //        for (int i = 0; i < arrayList.size(); i++) {
 //            for (int j = i + 1; j < arrayList.size(); j++) {
 //                int age1 = Integer.parseInt(arrayList.get(i).get(0));
