@@ -83,7 +83,5 @@ public class Main {
             //q 사이즈는 2
         }
         System.out.println(last);
-
-
     }
 }
