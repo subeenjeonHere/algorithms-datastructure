@@ -10,6 +10,7 @@ import java.util.Scanner;
  * count가 Null일 수도 있음
  * 감염되는 대상이 없을 수 있음
  * 인접행렬 할당할 때 Edge 기준으로 할당하지 않았다.
+ * Count 출력을 pint(dfs)로 해야했다
  */
 public class Main {
 
