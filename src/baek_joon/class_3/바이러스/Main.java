@@ -33,7 +33,6 @@ public class Main {
             v2 = sc.nextInt();
             matrix[v1][v2] = 1;
             matrix[v2][v1] = 1;
-            //         System.out.println(v1 + " > " + v2);
         }
 
         /**
@@ -55,13 +54,11 @@ public class Main {
 
     // DFS 인접행렬 재귀 구현
     private static int dfs(int Node) {
-        //      System.out.println(Node + " > 노드");
         // 방문 체크
         visited[Node] = true;
         for (int i = 1; i < matrix.length; i++) {
             if (matrix[Node][i] == 1 && !visited[i]) {
-                //           System.out.println("I번째: " + i);
-                //         System.out.println("인접 행렬 위치 : " + matrix[Node][i] + "/ 방문여부: " + visited[i]);
+
                 count++;
                 dfs(i);
             }
