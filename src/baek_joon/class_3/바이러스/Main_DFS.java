@@ -1,18 +1,16 @@
 package baek_joon.class_3.바이러스;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 // 인접 행렬
 
 /**
- * @Point
- * count가 Null일 수도 있음
+ * @Point count가 Null일 수도 있음
  * 감염되는 대상이 없을 수 있음
  * 인접행렬 할당할 때 Edge 기준으로 할당하지 않았다.
- * Count 출력을 print(dfs)로 해야했다
+ * Count 출력을 print(dfs)로 해야했다.
  */
-public class Main {
+public class Main_DFS {
 
     static boolean[] visited;
     static int[][] matrix;
@@ -26,7 +24,7 @@ public class Main {
         //엣지 수
         int edge = sc.nextInt();
 
-        // 방향성 그래프 인접 행렬 할당
+        // 엣지를 기준으로 인접 행렬 할당
         matrix = new int[n + 1][n + 1];
         for (int i = 1; i <= edge; i++) {
             int v1, v2;
@@ -45,6 +43,7 @@ public class Main {
 
         // 시작 노드
         int start = 1;
+
         if (dfs(start) == 0) {
             System.out.println("0");
         } else {
@@ -59,12 +58,10 @@ public class Main {
         visited[Node] = true;
         for (int i = 1; i < matrix.length; i++) {
             if (matrix[Node][i] == 1 && !visited[i]) {
-
                 count++;
                 dfs(i);
             }
         }
-
         if (count == 0) {
             return 0;
         }
