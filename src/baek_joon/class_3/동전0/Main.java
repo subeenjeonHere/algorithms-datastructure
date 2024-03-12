@@ -49,7 +49,10 @@ public class Main {
                     return;
                 }
             }
-            j--;
+            else {
+
+                j--;
+            }
 
         }
     }

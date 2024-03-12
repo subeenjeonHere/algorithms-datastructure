@@ -25,6 +25,11 @@ public class Main {
             System.out.println("Next: " + next);
             res += next;
         }
+        int sum2 = 0;
+        for (int i : arr) {
+            sum2 += i * (n--);
+            System.out.println(sum2);
+        }
         System.out.println(res + arr[0]);
     }
 }
