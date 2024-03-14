@@ -33,7 +33,7 @@ public class Main {
 //                        System.out.println("x + dx[d] : " + x + " , " + dx[d]);
 //                        System.out.println("y + dy[d] : " + y + " , " + dy[d]);
 //                        System.out.println("nx: " + nx + " / ny: " + ny);
-                        System.out.println("탐색결과: " + map[nx][ny] + " ");
+                        System.out.println("탐색 결과: " + map[nx][ny] + " ");
                         System.out.println();
                     }
                 }
