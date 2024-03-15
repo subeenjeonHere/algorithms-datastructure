@@ -3,6 +3,7 @@ package baek_joon.class_3.유기농배추;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.annotation.ElementType;
 
 
 /**
@@ -11,11 +12,12 @@ import java.io.InputStreamReader;
  * - 4방 탐색 결과 방문 체크 및 DFS 호출
  * - 4방 탐색하면서 1있으면 dfs 재귀호출 지속, 1 없다면 종료
  * - 상하 좌우로 탐색하기에 1이 여러 개 있다면 원래 노드로 복귀해야 함
+ * - 단지 탐색 종료 후 카운팅 어디서 누적?
  */
 public class Main {
-    static int n;
+    static int n, m;
     static int[][] g;
-    static boolean[] visited;
+    static boolean[][] visited;
     //4방 탐색 델타 배열
     static int[] node;
     static int count;
@@ -23,86 +25,81 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         // 인접행렬 할당
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         int tc = Integer.parseInt(br.readLine());
-        String[] info = br.readLine().split(" ");
-        int m = Integer.parseInt(info[0]);
-        int n = Integer.parseInt(info[1]);
-        int k = Integer.parseInt(info[2]);
+//        for (int w = 0; w < tc; w++) {
 
-        g = new int[m + 1][m + 1];
+        for (int t = 1; t <= tc; t++) {
+            String[] info = br.readLine().split(" ");
+            m = Integer.parseInt(info[0]);
+            n = Integer.parseInt(info[1]);
+            int k = Integer.parseInt(info[2]);
 
-        //노드 저장
-        node = new int[m + 1];
-        // 인접 행렬 할당
-        for (int i = 0; i < k; i++) {
-            String[] ab = br.readLine().split(" ");
-            int from = Integer.parseInt(ab[0]);
-            int to = Integer.parseInt(ab[1]);
-            g[from][to] = 1;
-        }
+            g = new int[51][51];
 
-        System.out.println("====");
-        //인접 행렬 출력
-        for (int i = 0; i < g.length; i++) {
-            for (int j = 0; j < g[i].length; j++) {
-                System.out.print(g[i][j] + " ");
+            //노드 저장
+            node = new int[51];
+            // 인접 행렬 할당
+            for (int i = 1; i <= k; i++) {
+                String[] ab = br.readLine().split(" ");
+                int x = Integer.parseInt(ab[0]);
+                int y = Integer.parseInt(ab[1]);
+                g[x][y] = 1;
             }
-            System.out.println();
-        }
-        System.out.println("====");
 
-        // 방문 배열 할당
-        visited = new boolean[m + 1];
-
-        //시작할 노드 찾기 (0,0)
-        // 1이 있으면 dfs 호출
-        for (int i = 0; i < g.length; i++) {
-            for (int j = 0; j < g[i].length; j++) {
-                if (g[i][j] == 1) {
-                    dfs(i, j, g[i][j]);
+            // 방문 배열 할당
+            visited = new boolean[51][51];
+            int result = 0;
+            //시작할 노드 찾기 (0,0)
+            // 1이 있으면 dfs Call
+            for (int i = 0; i < 51; i++) {
+                for (int j = 0; j < 51; j++) {
+                    if (g[i][j] == 1 && !visited[i][j]) {
+                        dfs(i, j, g, visited);
+                        result++;
+                    }
                 }
             }
+            System.out.println(result);
         }
     }
 
-    private static int dfs(int x, int y, int Node) {
+    //DFS 동작
+    private static void dfs(int x, int y, int[][] g, boolean[][] visited) {
         //방문 체크
-        visited[Node] = true;
-
-        // 상하
+        visited[x][y] = true;
+        // 상하 좌우
         int[] dx = {-1, 1, 0, 0};
-        // 좌우
         int[] dy = {0, 0, -1, 1};
+
 
         // 4방 탐색하며 인접 노드 탐색
         for (int d = 0; d < 4; d++) {
             int nx = x + dx[d];
             int ny = y + dy[d];
 
-            if (nx < 0 || ny < 0) {
-                continue;
-            }
-            // 연결 노드 방문했으면 종료
-            if (!visited[g[nx][ny]]) {
+            if (nx < 0 || ny < 0 || x > g.length || y > g[0].length) {
                 continue;
             }
 
-            System.out.println(nx + " " + ny);
-            System.out.println("연결 노드: " + g[nx][ny]);
 
-            int new_Node = g[nx][ny];
-            visited[new_Node] = true;
-            dfs(nx, ny, new_Node);
+            if (g[nx][ny] == 0) {
+                continue;
+            }
 
+            // 방문하지 않았고, 노드 있으면 방문체크, dfs recursive call
+            if (!visited[nx][ny] && g[nx][ny] == 1) {
+                visited[nx][ny] = true;
+                dfs(nx, ny, g, visited);
+            }
 
         }
-        return count;
+
     }
 }
 
-//                System.out.println(nx + " " + ny);
-//                System.out.println("연결 노드: " + g[nx][ny]);
 
 /**
  * 배추가 심어져있는 곳만 인접 행렬에 할당해주어야 함
