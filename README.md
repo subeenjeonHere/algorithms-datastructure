@@ -13,11 +13,6 @@ PS, 백준 클래스 밀기
 | 클래스 5                                                                  |          |        |
 
 
-# DataStructure
-
-자료구조
-
-기타 알고리즘
 
 
 ## Algorithms Chapter
