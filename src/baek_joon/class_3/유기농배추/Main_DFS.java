@@ -3,7 +3,10 @@ package baek_joon.class_3.유기농배추;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.annotation.ElementType;
+
+/**
+ * @Subject DFS 풀이
+ */
 
 /**
  * @Point - 시작 노드 설정
@@ -13,22 +16,16 @@ import java.lang.annotation.ElementType;
  * - 상하 좌우로 탐색하기에 1이 여러 개 있다면 원래 노드로 복귀해야 함
  * - 단지 탐색 종료 후 카운팅 어디서 누적?
  */
-public class Main {
+public class Main_DFS {
     static int n, m;
     static int[][] g;
     static boolean[][] visited;
-    //4방 탐색 델타 배열
     static int[] node;
-    static int count;
-    static int x, y;
 
     public static void main(String[] args) throws IOException {
-        // 인접행렬 할당
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int tc = Integer.parseInt(br.readLine());
-//        for (int w = 0; w < tc; w++) {
 
         for (int t = 1; t <= tc; t++) {
             String[] info = br.readLine().split(" ");
@@ -83,19 +80,15 @@ public class Main {
                 continue;
             }
 
-
             if (g[nx][ny] == 0) {
                 continue;
             }
-
             // 방문하지 않았고, 노드 있으면 방문체크, dfs recursive call
             if (!visited[nx][ny] && g[nx][ny] == 1) {
                 visited[nx][ny] = true;
                 dfs(nx, ny, g, visited);
             }
-
         }
-
     }
 }
 

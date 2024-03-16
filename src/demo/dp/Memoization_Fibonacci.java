@@ -1,4 +1,4 @@
-package baek_joon.class_3.피보나치함수;
+package demo.dp;
 
 public class Memoization_Fibonacci {
     // 메모이제이션 배열 기본값 0

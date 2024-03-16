@@ -60,7 +60,6 @@ public class Main_BFS {
 
             // 어디까지 반복
             for (int i = 0; i < graph.length; i++) {
-
                 //인접 행렬에서 노드와 연결 되어있고
                 if (graph[nowNode][i] == 1) {
                     //방문하지 않았다면

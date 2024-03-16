@@ -3,7 +3,7 @@ package demo.dp;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Memoization {
+public class Memoization_DP_Fibonacci {
 
     public static Map<Integer, Integer> memo = new HashMap<>();
 
