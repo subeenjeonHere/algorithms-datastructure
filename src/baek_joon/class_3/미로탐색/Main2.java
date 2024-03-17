@@ -10,6 +10,7 @@ import java.util.*;
  * @Point
 
  * 인접노드 여러개일 때 한 개의 최단경로
+ * bfs가 최단거리를 보장하는 원리 생각해보기
  */
 public class Main2 {
     //방문 배열
@@ -20,13 +21,6 @@ public class Main2 {
     static int count;
     //세로,가로 길이
     static int n, m;
-    //경로 배열
-    static int[] path;
-    static ArrayList<Integer>[] path2;
-    //거리 배열
-    static int[] dis;
-    static ArrayList<int[]> distance;
-    static ArrayList<Integer>[] dis2;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -40,10 +34,7 @@ public class Main2 {
         g = new int[n][m];
         //방문 배열 할당
         visit = new boolean[n][m];
-        // 경로 배열 할당 노드 수
-        path = new int[n * m];
-        //거리 배열 할당
-        dis = new int[n * m];
+
 
         //인접행렬 입력받기
         for (int i = 0; i < n; i++) {
@@ -61,16 +52,6 @@ public class Main2 {
             System.out.println();
         }
 
-        //거리 배열 초기화
-        Arrays.fill(dis, -1);
-
-        //시작 정점 초기화
-        dis[g[0][0]] = 0;
-
-        //시작 노드 경로 초기화
-        path[g[0][0]] = g[0][0];
-
-//        bfs(0, 0);
         System.out.println(bfs(0, 0));
 
     }
@@ -81,17 +62,12 @@ public class Main2 {
         int[] dy = {0, 0, -1, 1};
 
         //큐 할당
-        Queue<int[]> que = new LinkedList<>();
-
         Queue<Point> q = new LinkedList<>();
 
-        //큐에 시작 노드 삽입
-        que.add(new int[]{x, y});
         //큐 시작 위치, 거리 삽입
         q.add(new Point(0, 0, 0));
 
         //방문 체크
-        visit[x][y] = true;
         visit[0][0] = true;
 
         while (!q.isEmpty()) {
@@ -168,9 +144,8 @@ public class Main2 {
         }
     }
 }
-// 인접노드 여러 개 일 때 한 꺼번에 큐에 삽입?
-// 이걸로 어떻게 최단경로를 구할 수 있는건지
+// 인접 노드 여러 개 일 때 한 꺼번에 큐에 삽입?
 // 인접행렬이 아니라 인접된 노드를 for 돌려야 하는건지 그럼 4방 탐색은 어떻게 할건지
 // (0, 3) -> (0,4) 탐색못하고 continue됨 = nx,ny 길이
-// bfS 종료 시점
+// bfS 종료 시점 언제
 // 거리 출력 void -> int, 리턴값
