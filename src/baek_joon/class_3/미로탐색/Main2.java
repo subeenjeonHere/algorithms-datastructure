@@ -95,29 +95,12 @@ public class Main2 {
             }
         }
 
-        //큐 빌 때 까지 반복
-//        while (!que.isEmpty()) {
-//            int[] nowNode = que.poll();
-//            int curX = nowNode[0];
-//            int curY = nowNode[1];
-//            for (int d = 0; d < 4; d++) {
-//                int nx = curX + dx[d];
-//                int ny = curY + dy[d];
-//                if (nx < 0 || ny < 0 || nx >= n || ny >= m) {
-//                    continue;
-//                }
 //                //4방 탐색 인접 노드 찾기
 //                //인접한 노드의 거리가 -1 이라면 아직 방문하지 않았다
 //                //인접한 노드의 거리를 현재 노드 + 1 로 갱신해주어야 한다
 //                //현재 경로 정점을 인접 노드로 갱신
 //                //인접노드 큐 add
-//                if (g[nx][ny] == 1 && !visit[nx][ny]) {
-//                    count++;
-//                    visit[nx][ny] = true;
-//                    que.add(new int[]{nx, ny});
-//                }
-//            }
-//        }
+
         return -1;
     }
 
