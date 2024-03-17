@@ -15,8 +15,7 @@ public class Main {
     static boolean[][] visit;
     //인접 행렬 배열
     static int[][] g;
-    //노드 탐색 카운트 int
-    static int count;
+
     //세로,가로 길이
     static int n, m;
 
@@ -34,9 +33,9 @@ public class Main {
         visit = new boolean[n][m];
 
 
-        //인접행렬 입력받기
-        for (int i = 0; i < n; i++) {
-            String[] node = br.readLine().split("");
+                    //인접행렬 입력받기
+            for (int i = 0; i < n; i++) {
+                String[] node = br.readLine().split("");
             for (int j = 0; j < m; j++) {
                 g[i][j] = Integer.parseInt(node[j]);
             }
@@ -49,7 +48,9 @@ public class Main {
         int[] dx = {1, -1, 0, 0};
         int[] dy = {0, 0, -1, 1};
 
+
         //큐 할당
+        //Point 객체 큐에 추가, 노드 사이 거리 저장
         Queue<Point> q = new LinkedList<>();
 
         //큐 시작 위치, 거리 삽입
@@ -86,9 +87,9 @@ public class Main {
     }
 
     //데이터 쌍 저장할 Pair 클래스
+    //노드 정보 저장 , 각 셀 위치와 셀 까지 거리 저장하기 위함임
     public static class Point {
         private final int x, y, dis;
-
         public Point(int x, int y, int dis) {
             this.x = x;
             this.y = y;
@@ -108,6 +109,7 @@ public class Main {
         }
     }
 }
+
 // 인접 노드 여러 개 일 때 한 꺼번에 큐에 삽입?
 // 인접행렬이 아니라 인접된 노드를 for 돌려야 하는건지 그럼 4방 탐색은 어떻게 할건지
 // (0, 3) -> (0,4) 탐색못하고 continue됨 = nx,ny 길이
