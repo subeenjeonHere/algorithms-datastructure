@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-
 /***
  * @Point
  * 인접노드 여러개일 때 한 개의 최단경로
@@ -77,19 +76,12 @@ public class Main {
                     continue;
                 }
                 // 인접 노드 1이고, 방문하지 않았다면 방문체크 큐 삽입 거리 +1 갱신
-                if (g[newX][newY] == 1 && !visit[newX][newY]) {
+                if (g[newX][newY] == 1) {
                     visit[newX][newY] = true;
                     q.add(new Point(newX, newY, dis + 1));
                 }
             }
         }
-
-//                //4방 탐색 인접 노드 찾기
-//                //인접한 노드의 거리가 -1 이라면 아직 방문하지 않았다
-//                //인접한 노드의 거리를 현재 노드 + 1 로 갱신해주어야 한다
-//                //현재 경로 정점을 인접 노드로 갱신
-//                //인접노드 큐 add
-
         return -1;
     }
 

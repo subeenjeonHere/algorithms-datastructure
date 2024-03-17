@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * @Point 그리디
@@ -25,6 +26,8 @@ public class Main {
         //2차원 배열 회의 시간 저장
         int[][] time = new int[n + 1][2];
         ArrayList<ArrayList<Integer>> arrayList = new ArrayList<ArrayList<Integer>>();
+        //결과저장 배열
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 
         //리스트에 행 할당, 회의 시간표 저장
         for (int i = 0; i < n; i++) {
@@ -38,24 +41,52 @@ public class Main {
             for (int j = 0; j < 1; j++) {
                 int end = Integer.parseInt(info[1]);
                 arrayList.get(i).add(end);
-
             }
         }
-
         System.out.println(arrayList);
 
 
         //0번 인덱스 종료시간 가장 작은 것 할당
+        int min = arrayList.get(0).get(1);
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                int temp = arrayList.get(i).get(1);
+                if (temp < min) {
+                    min = arrayList.get(i).get(1);
+                }
+            }
+        }
+        //최소값 결과에 할당
+        if (res.isEmpty()) {
+            res.add(arrayList.get(0));
+            arrayList.remove(0);
+        }
 
         //1: 0번 종료시간 다음으로 가장 빠른 시작시간
         //2: 1번 종료시간 다음으로 가장 빠른 시작시간
 
-        //2차원 배열에 저장된 시작시간 행 중 최솟값
-        //for 1부터 2차원 배열 시작시간 행 끝까지
+        //0번 행 리스트 추가하고, 삭제 -> n-1번 종료시보다 n의 시작시간 크고 , 시간표 중에서 종료시간 빠른거
+        for (int i = 1; i <= arrayList.size(); i++) {
+            int s1 = res.get(i - 1).get(1);
+
+            for (int j = 1; j <= arrayList.get(i).size(); j++) {
+
+                int s2 = arrayList.get(j - 1).get(0);
+
+                // 시작 시간 최소
+                if (s1 < s2) {
+
+                }
+
+
+            }
+        }
+
+        //2차원 배열에 저장된 시작 시간 행 중 최솟값
+        //for 1부터 2차원 배열 시작 시간 행 끝까지
         // if 전 인덱스 종료시간 보다 크고, 사용되지 않았다면
 
         //리스트 추가
-
 
         //리스트 사이즈 출력
 

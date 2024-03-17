@@ -4,11 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * @Point 중복 고려해야했음
- * 1 2
- * 1 1 이라면 뒤는 0이 와야함
- */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
