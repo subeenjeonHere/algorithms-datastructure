@@ -3,6 +3,7 @@ package baek_joon.class_3.토마토;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -23,6 +24,7 @@ public class Main {
     static int[] dy = {0, 0, -1, 1};
     //방문
     static int[][] visit;
+    static Queue<int[]> q = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
         //가로 M, N 미로 메모리 할당
@@ -39,16 +41,15 @@ public class Main {
             String[] node = br.readLine().split(" ");
             for (int j = 0; j < m; j++) {
                 g[i][j] = Integer.parseInt(node[j]);
-                //0 개수 저장
+                //토마토 익었는지 안 익었는지 확인 위해 0 개수 저장
                 if (g[i][j] == 0) {
                     zero += 1;
                 }
             }
         }
-
         print();
 
-        //시작부터 안익은 토마토없으면
+        //시작 부터 안익은 토마토 없으면
         if (zero == 0) {
             System.out.println("0");
             return;
@@ -59,79 +60,64 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (g[i][j] == 1) {
-                    // 0변화 저장
-                    res = bfs(i, j);
+                    // 0 변화 저장
+                    q.add(new int[]{i, j});
+//                    res = bfs();
                 }
             }
         }
-        //토마토 다 안 익었으면 -1리턴
+        //1인 노드 큐에 넣고, bfs 호출
+        res = bfs();
+
+        //토마토 다 안 안 익음, 0 남아 있으면 -1리턴
         if (res > 0) {
             System.out.println("-1");
         } else {
             System.out.println("결과: " + res);
         }
+        //최대값찾기
+        int maxResult = 0;
+        for (int i = 0; i < g.length; i++) {
+            for (int j = 0; j < g[i].length; j++) {
+                maxResult = Math.max(g[i][j], maxResult);
+            }
+        }
+        System.out.println("최대:" + maxResult);
     }
 
-
     private static int bfs(int x, int y) {
-        Queue<Pair> que = new LinkedList<>();
-        Queue<int[]> q = new LinkedList<>();
+        q = new LinkedList<>();
 
         visit[x][y] = 1;
 
-        que.add(new Pair(x, y, 0));
         q.offer(new int[]{x, y});
 
         while (!q.isEmpty()) {
             //큐에서 폴
             int[] now = q.poll();
-            //4방 탐색
 
+            //4방 탐색
             for (int d = 0; d < 4; d++) {
                 int nX = now[0] + dx[d];
                 int nY = now[1] + dy[d];
 
-                if (nX < 0 || nY < 0 || nX >= 0 || nY >= 0) {
+                if (nX < 0 || nY < 0 || nX >= n || nY >= m) {
                     continue;
                 }
 
+                //이미 익었거나, -1 막혀있는 경우
                 if (g[nX][nY] == 1 && g[nX][nY] == -1) {
                     continue;
                 }
+                //토마토가 아직 익지 않았거나, 방문하지 않은 경우 큐에 삽입
                 if (g[nX][nY] == 0 && visit[nX][nY] == 0) {
                     visit[nX][nY] = 1;
+                    //각 x좌표, y좌표 갱신
                     g[nX][nY] = g[now[0]][now[1]] + 1;
                     q.add(new int[]{nX, nY});
                 }
-
             }
         }
-
-//        while (!que.isEmpty()) {
-//            Pair now = que.poll();
-//            int nx = now.getX();
-//            int ny = now.getY();
-//            int nDis = now.getDis();
-//            for (int d = 0; d < 4; d++) {
-//
-//                int newX = nx + dx[d];
-//                int newY = ny + dy[d];
-//
-//                if (newX < 0 || newY < 0 || newX >= n || newY >= m) {
-//                    continue;
-//                }
-//                if (g[newX][newY] == 1 && g[newX][newY] == -1) {
-//                    continue;
-//                }
-//
-//                if (g[newX][newY] == 0 && visit[newX][newY] == 0) {
-//                    visit[newX][newY] = 1;
-//                    zero += -1;
-//                    que.add(new Pair(newX, newY, nDis + 1));
-//                    System.out.println("0: " + zero);
-//                }
-//            }
-//        }
 
         return -1;
     }
