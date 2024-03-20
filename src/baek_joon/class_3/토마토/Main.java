@@ -67,24 +67,23 @@ public class Main {
         }
         //1인 노드 큐에 넣고, bfs 호출
         bfs();
-        //토마토가 다 안 익었을 떄 0이 남아있을 떄의 처리
-
-
-        //최대값찾기
         int maxResult = 0;
+        //토마토가 다 안 익었을 떄 0이 남아있을 떄의 처리
         for (int i = 0; i < g.length; i++) {
             for (int j = 0; j < g[i].length; j++) {
-                maxResult = Math.max(g[i][j], maxResult);
+                if (g[i][j] == 0) {
+                    System.out.print("-1");
+                    return;
+                } else {
+
+                    maxResult = Math.max(g[i][j], maxResult);
+                }
             }
         }
         System.out.print(maxResult - 1);
     }
 
     private static int bfs() {
-//        q = new LinkedList<>();
-
-//        visit[x][y] = 1;
-//        q.offer(new int[]{x, y});
 
         while (!q.isEmpty()) {
             //큐에서 폴
@@ -124,28 +123,6 @@ public class Main {
     //if -1 이거나, 1이면 continue
     //4방 탐색 인접 노드 0이고, 방문 안 했으면 큐 삽입
     //0이 1로 변경됨 -. 0 개수 감소
-    public static class Pair {
-        private final int x, y, dis;
-
-        public Pair(int x, int y, int dis) {
-            this.x = x;
-            this.y = y;
-            this.dis = dis;
-        }
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public int getDis() {
-            return dis;
-        }
-
-    }
 
     private static void print() {
         for (int i = 0; i < g.length; i++) {
