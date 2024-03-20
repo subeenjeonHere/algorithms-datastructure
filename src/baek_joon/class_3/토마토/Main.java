@@ -47,7 +47,7 @@ public class Main {
                 }
             }
         }
-        print();
+//        print();
 
         //시작 부터 안익은 토마토 없으면
         if (zero == 0) {
@@ -60,21 +60,16 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (g[i][j] == 1) {
-                    // 0 변화 저장
+                    //시작 노드 여러개일 때, 1인 노드 모두 시작 노드로 삽입
                     q.add(new int[]{i, j});
-//                    res = bfs();
                 }
             }
         }
         //1인 노드 큐에 넣고, bfs 호출
-        res = bfs();
+        bfs();
+        //토마토가 다 안 익었을 떄 0이 남아있을 떄의 처리
 
-        //토마토 다 안 안 익음, 0 남아 있으면 -1리턴
-        if (res > 0) {
-            System.out.println("-1");
-        } else {
-            System.out.println("결과: " + res);
-        }
+
         //최대값찾기
         int maxResult = 0;
         for (int i = 0; i < g.length; i++) {
@@ -82,15 +77,14 @@ public class Main {
                 maxResult = Math.max(g[i][j], maxResult);
             }
         }
-        System.out.println("최대:" + maxResult);
+        System.out.print(maxResult - 1);
     }
 
-    private static int bfs(int x, int y) {
-        q = new LinkedList<>();
+    private static int bfs() {
+//        q = new LinkedList<>();
 
-        visit[x][y] = 1;
-
-        q.offer(new int[]{x, y});
+//        visit[x][y] = 1;
+//        q.offer(new int[]{x, y});
 
         while (!q.isEmpty()) {
             //큐에서 폴
@@ -118,7 +112,6 @@ public class Main {
                 }
             }
         }
-
         return -1;
     }
 
