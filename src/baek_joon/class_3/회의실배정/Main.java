@@ -81,29 +81,35 @@ public class Main {
         System.out.println(arrayList);
 
         //종료시간이 같은 경우, 시작 시간이 더 빠른 걸 선택하는 것이 유리함
-        //if (i-1)회의 시작시간 < 종료시간 이라면 선택
-        for (int i = 0; i < arrayList.size() - 1; i++) {
-            //항상 선택된 회의의 맨 마지막 기준
-            int len = resultList.size();
-            int e1 = resultList.get(len - 1).get(1);
-            for (int j = 1; j < arrayList.size(); j++) {
-                int s1 = arrayList.get(j).get(0);
-                if (s1 >= e1) {
-
-                    resultList.add(arrayList.get(j));
-                    arrayList.remove(arrayList.get(j));
-                    break;
-                }
+        // if(i-1) 회의 종료 시간 < i 회의 시작 시간 이라면 카운트 증가
+        int count = 0;
+        int new_End = arrayList.get(0).get(1);
+        for (int i = 1; i < arrayList.size(); i++) {
+            //하나의 종료시간이 선택됐으면, 직전 회의 종료 시간도 업데이트 되어야 함.
+            int s1 = arrayList.get(i).get(0);
+            if (s1 >= new_End) {
+                count++;
+                new_End = arrayList.get(i).get(1);
             }
         }
+        System.out.println(count + 1);
 
-        for (int i = 1; i < arrayList.size(); i++) {
-            int s1 = arrayList.get(i - 1).get(1);
+//        for (int i = 1; i < arrayList.size() ; i++) {
+//            //항상 선택된 회의의 맨 마지막 기준
+//            int len = resultList.size();
+//            int e1 = resultList.get(len - 1).get(1);
+//
+//            for (int j = 1; j < arrayList.size(); j++) {
+//
+//                int s1 = arrayList.get(j).get(0);
+//                if (s1 >= e1) {
+//                    count++;
+//                    resultList.add(arrayList.get(j));
+//                    break;
+//                }
+//            }
+//        }
 
-        }
-        System.out.println(arrayList);
-        System.out.println("결과" + resultList);
-        System.out.println(resultList.size());
 
     }
 }
