@@ -1,24 +1,16 @@
 package baek_joon.class_3.연결요소개수;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
-
 
 /**
  * @Point - 연결요소의 개수
  * 인접리스트, DFS 사용
- *
- * @Review
- * - 엣지 케이스 고려
+ * @Review - 엣지 케이스 고려
  * - 간선 0개일 때
  * - 간선 정보 주어지지 않았다고 노드가 없는 게 아님, 문제에서 Node는 무조건 1부터 시작한다는 걸 간과함
- *
  */
 public class Main {
 
