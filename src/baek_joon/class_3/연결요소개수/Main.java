@@ -46,6 +46,7 @@ public class Main {
             g.get(a).add(b);
             g.get(b).add(a);
         }
+
         //출력
         print();
         //방문 배열 초기화
@@ -62,6 +63,8 @@ public class Main {
                 }
             }
         }
+        // 연결되지 않은 컴포넌트, 엣지케이스로 간선 입력되지 않았을때도 고려해야 함
+        // 이렇게 구현할거면 DFS 종료 후 방문 체크해야 함
         for (int i = 1; i <= n; i++) {
             if (!visit[i]) {
                 subNode++;
