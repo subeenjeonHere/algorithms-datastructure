@@ -63,6 +63,7 @@ public class Main {
                 }
             }
         }
+
         // 연결되지 않은 컴포넌트, 엣지케이스로 간선 입력되지 않았을때도 고려해야 함
         // 이렇게 구현할거면 DFS 종료 후 방문 체크해야 함
         for (int i = 1; i <= n; i++) {
@@ -73,7 +74,8 @@ public class Main {
 
         if (m == 0) {
             System.out.print(n);
-        } else {
+        } else
+        {
             System.out.print(count + subNode);
         }
 
@@ -81,7 +83,10 @@ public class Main {
 
     //dfs
     private static void dfs(ArrayList<ArrayList<Integer>> g, int node, boolean[] visit) {
+
+        //방문 체크
         visit[node] = true;
+        //현재 노드와 연결된 모든 노드를 순회
         for (int v : g.get(node)) {
             if (!visit[v]) {
                 dfs(g, v, visit);

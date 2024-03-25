@@ -33,9 +33,9 @@ public class Main {
         visit = new boolean[n][m];
 
 
-                    //인접행렬 입력받기
-            for (int i = 0; i < n; i++) {
-                String[] node = br.readLine().split("");
+        //인접행렬 입력받기
+        for (int i = 0; i < n; i++) {
+            String[] node = br.readLine().split("");
             for (int j = 0; j < m; j++) {
                 g[i][j] = Integer.parseInt(node[j]);
             }
@@ -47,7 +47,6 @@ public class Main {
         //델타 배열
         int[] dx = {1, -1, 0, 0};
         int[] dy = {0, 0, -1, 1};
-
 
         //큐 할당
         //Point 객체 큐에 추가, 노드 사이 거리 저장
@@ -90,6 +89,7 @@ public class Main {
     //노드 정보 저장 , 각 셀 위치와 셀 까지 거리 저장하기 위함임
     public static class Point {
         private final int x, y, dis;
+
         public Point(int x, int y, int dis) {
             this.x = x;
             this.y = y;
