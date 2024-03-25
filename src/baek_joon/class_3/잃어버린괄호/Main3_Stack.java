@@ -11,9 +11,6 @@ import java.util.Stack;
 
 /**
  * @Point 잃어버린 괄호 스택으로 풀기
- * <p>
- * + 아스키 43
- * - 아스키 45
  */
 public class Main3_Stack {
     static Stack<Integer> stk;
