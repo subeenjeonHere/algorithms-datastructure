@@ -10,7 +10,6 @@ public class Main2 {
     static String[] nums;
     static int[] res;
 
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -37,7 +36,6 @@ public class Main2 {
                 res[i] = Integer.parseInt(a);
             }
         }
-//        System.out.println(Arrays.toString(res));
 
         // 첫 번째 원소 부터 빼기 연산
         int result = res[0];
@@ -45,8 +43,6 @@ public class Main2 {
             result -= res[i];
         }
         System.out.print(result);
-
-
     }
 }
 // 55 - 90
