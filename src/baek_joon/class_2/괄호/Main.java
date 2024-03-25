@@ -37,7 +37,6 @@ public class Main {
     private static String stack(String[] strings) {
 
         //스택 할당
-
         stk = new Stack<>();
         //문자열 길이
         int len = strings.length;
@@ -48,10 +47,8 @@ public class Main {
         if (strings[0].equals(")")) {
             return "NO";
         }
-
         int start = 0;
         while (start < len) {
-
             String a = strings[start];
             if (stk.isEmpty() && a.equals(")")) {
                 return "NO";
@@ -68,13 +65,10 @@ public class Main {
             }
             start++;
         }
-
-
         if (stk.size() == 0) {
             return "YES";
         } else {
             return "NO";
         }
     }
-
 }
