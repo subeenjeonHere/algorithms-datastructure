@@ -1,20 +1,21 @@
-# Algorithms
-
-PS, 백준 클래스 밀기
+## Data Structures and Algorithms Study Repository
 
 
+This is where I study algorithms and data structures.
 
-| 문제 풀이 기록                                                               | Date     | Status |
-|:-----------------------------------------------------------------------|----------|--------|
-| 클래스 1                                                                  | 24.02.27 | Done   |
-| [클래스 2](https://github.com/subeenjeonHere/ps_baekprogrammers/issues/2) | 24.03.04 | ing    |
-| [클래스 3](https://github.com/subeenjeonHere/ps_baekprogrammers/issues/7) | 24.03.10 | ing    |
-| 클래스 4                                                                  |          |        |
-| 클래스 5                                                                  |          |        |
+---
 
+### Baekjoon Class Breakthrough
 
+| Class                                                                    | Date     | Status |
+|:-------------------------------------------------------------------------|----------|--------|
+| Class 1                                                                  | 24.02.27 | Done   |
+| [Class 2](https://github.com/subeenjeonHere/ps_baekprogrammers/issues/2) | 24.03.04 | In Progress |
+| [Class 3](https://github.com/subeenjeonHere/ps_baekprogrammers/issues/7) | 24.03.10 | In Progress |
+| Class 4                                                                  |          |        |
+| Class 5                                                                  |          |        |
 
+#### Algorithm Types by Class
 
-## Algorithms Chapter
 ![image](https://github.com/subeenjeonHere/Algoevol/assets/145312273/abb46754-fb4a-4be8-8e04-5aae9d2489da)
-----
+
