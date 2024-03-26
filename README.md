@@ -1,4 +1,4 @@
-## Data Structures and Algorithms Study Repository
+# Data Structures and Algorithms Study Repository
 
 
 This is where I study algorithms and data structures.
