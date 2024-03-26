@@ -5,6 +5,7 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Main3 {
@@ -21,6 +22,8 @@ public class Main3 {
     public static void main(String[] args) throws IOException {
 
         Stack<Integer> stack = new Stack<>();
+
+
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

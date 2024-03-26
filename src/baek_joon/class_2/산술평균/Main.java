@@ -1,16 +1,9 @@
 package baek_joon.class_2.산술평균;
 
-import demo.mergesort.MergeSort;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
-
-import static java.io.ObjectInputFilter.merge;
 
 public class Main {
     public static void main(String[] args) throws IOException {
