@@ -10,7 +10,6 @@ import java.util.*;
  *
  * - BFS, 연결 리스트
  * - K 노드 찾을 때 까지 BFS 수행하고 레벨 출력
- *
  * @Review
  * 노드 몇 개 생성 될지 몰라서 방문 배열 ArrayList로 생성
  * 숫자 커질 수록 방문 여부 체크할 때마다 전체 탐색 해야 함 > 당연히 시간 초과
@@ -18,9 +17,7 @@ import java.util.*;
 public class Main {
 
     //방문 배열
-    static ArrayList<Integer> visitList = new ArrayList<>();
     static boolean[] visit;
-
     //n,k
     static int n, k;
 
@@ -41,19 +38,15 @@ public class Main {
 
         Queue<Dis> q = new LinkedList<>();
 
-//        visitList = new ArrayList<>();
-
-        //시작 노드 삽입 거리 0, 수빈 시작 위치, 방문 체크
         q.add(new Dis(Node, 0));
-//        visitList.add(Node);
+
         visit[Node] = true;
 
         //3 operation
-        // 2*x, x+1, x-1
+        //2*x, x+1, x-1
         //연산결과 방문 체크, 방문 했다면 삽입 안함
         while (!q.isEmpty()) {
 
-            //노드 poll
             Dis x = q.poll();
 
             //노드값,거리, 방문 여부
@@ -66,8 +59,7 @@ public class Main {
                 return;
             }
 
-            //3개연산
-            //방문했다면 삽입 안함
+            //방문 했다면 삽입 안함
             for (int i = 0; i < operation.length; i++) {
                 int newNode = 0;
 
@@ -83,17 +75,13 @@ public class Main {
                 }
                 if (!visit[newNode]) {
                     visit[newNode] = true;
-//                    visitList.add(newNode);
+
                     q.add(new Dis(newNode, nowDis + 1));
                 }
-//                if (!visitList.contains(newNode)) {
-//                    visitList.add(newNode);
-//                    q.add(new Dis(newNode, nowDis + 1));
-//                }
+
             }
         }
     }
-
     public static class Dis {
         private final int node;
         private final int dis;
@@ -101,7 +89,6 @@ public class Main {
         public Dis(int node, int dis) {
             this.node = node;
             this.dis = dis;
-
         }
 
         public int getNode() {
@@ -111,6 +98,5 @@ public class Main {
         public int getDis() {
             return dis;
         }
-
     }
 }
