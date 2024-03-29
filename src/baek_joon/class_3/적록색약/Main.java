@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.SortedMap;
 import java.util.Stack;
 
 
@@ -33,7 +34,7 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         //인접행렬 생성 방문배열 할당
         g = new String[n + 1][n + 1];
-        visit = new boolean[n + 1][n + 1];
+
         String[] info = new String[n];
         for (int i = 0; i < n; i++) {
             info = br.readLine().split("");
@@ -43,12 +44,17 @@ public class Main {
         }
 
         int n0 = 0;
-        int n1 = 1;
+        int n1 = 0;
+        int[] res = new int[2];
         //dfs 콜
+        //개수 초기화 됨
         for (int i = 0; i < 2; i++) {
+            visit = new boolean[n + 1][n + 1];
+
             for (int x = 0; x < g.length - 1; x++) {
                 for (int y = 0; y < g[x].length - 1; y++) {
                     if (!visit[x][y]) {
+
                         dfs(x, y, i);
                         if (i == 0) {
                             n0++;
@@ -59,15 +65,16 @@ public class Main {
                 }
             }
         }
-        System.out.println(n0 + " " + n1);
+
+        System.out.print(n0 + " " + n1);
     }
 
     //dfs
     private static void dfs(int x, int y, int i) {
+
         Stack<Point> stk = new Stack<>();
         stk.push(new Point(x, y));
         visit[x][y] = true;
-
 
         while (!stk.isEmpty()) {
             Point now = stk.pop();
@@ -84,8 +91,8 @@ public class Main {
                 if (newX < 0 || newY < 0 || newX >= n || newY >= n) {
                     continue;
                 }
-                //인접노드
 
+                //인접노드
                 String newNode = g[newX][newY];
                 //0번째 색약없을때
                 if (i == 0) {
@@ -94,7 +101,6 @@ public class Main {
                         stk.push(new Point(newX, newY));
                     }
                 }
-
                 //1번째 색약잇을 떄 //r,g 똑같을 때 처리
                 //현재노드가 r이라면, r,g 다 갈 수 있다.
                 else if (i == 1) {
@@ -106,8 +112,7 @@ public class Main {
                             ||
                             a.equals("G") && g[newX][newY].equals("G") && !visit[newX][newY]
                             ||
-                            a.equals("B") && g[newX][newY].equals("B") && !visit[newX][newY]
-                    ) {
+                            a.equals("B") && g[newX][newY].equals("B") && !visit[newX][newY]) {
                         visit[newX][newY] = true;
                         stk.push(new Point(newX, newY));
                     }
