@@ -10,7 +10,7 @@ public class Main {
     static int k;
     static int n;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -25,6 +25,7 @@ public class Main {
          */
         int tc = sc.nextInt();
         s3array = new int[15];
+
         for (int i = 1; i <= tc; i++) {
 
             int k = sc.nextInt();
