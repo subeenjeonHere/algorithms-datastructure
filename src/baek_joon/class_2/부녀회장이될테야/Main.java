@@ -3,10 +3,9 @@ package baek_joon.class_2.부녀회장이될테야;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class 부녀회장이될테야 {
+public class Main {
     static int[] s3array;
     static int k;
     static int n;
