@@ -1,37 +1,45 @@
 package baek_joon.class_3._1로만들기;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.BatchUpdateException;
 
 /**
- * @Point 반례 100007 정답 21인데, 22나옴
+ * @Point - 3,2로 동시에 나눠질 때 처리
+ * - n이 1일 때
+ * 반례 642 정답 10인데 11나옴
  */
 public class Main {
-    static int res;
-    static int[] dp;
+    static int n;
+    static int dp[];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        res = 0;
-
-        dp = new int[100001];
-        System.out.print(solve(n));
-    }
-
-    static int solve(int n) {
-
-        //1이 되면 종료
+        n = Integer.parseInt(br.readLine());
         if (n == 1) {
-            return res;
+            System.out.print("0");
+            return;
         }
-        if (n % 3 == 0) {
-            return solve(n / 3);
+        dp = new int[n + 2];
+
+        //2,3을 1로 만드는 횟수는 1이니 초기값 저장
+        dp[2] = 1;
+        dp[3] = 1;
+
+        for (int i = 4; i < dp.length; i++) {
+            if (i % 3 == 0 && i % 2 == 0) {
+                dp[i] = Math.min(dp[i / 3] + 1, dp[i / 2] + 1);
+            } else if (i % 3 == 0) {
+                dp[i] = Math.min(dp[i - 1] + 1, dp[i / 3] + 1);
+            } else if (i % 2 == 0) {
+                dp[i] = Math.min(dp[i - 1] + 1, dp[i / 2] + 1);
+            } else {
+                dp[i] = dp[i - 1] + 1;
+            }
         }
-        if (n % 2 == 0) {
-            return solve(n / 2);
-        }
-        return 0;
+        System.out.print(dp[n]);
+
     }
 }
-// 3으로 우선적으로 나누도록 했는데, 이게 최소임을 보장하지 않는다
