@@ -15,6 +15,7 @@ public class Main {
 
         tc = Integer.parseInt(br.readLine());
 
+
         for (int i = 0; i < tc; i++) {
             String[] nm = br.readLine().split(" ");
             n = Integer.parseInt(nm[0]);
