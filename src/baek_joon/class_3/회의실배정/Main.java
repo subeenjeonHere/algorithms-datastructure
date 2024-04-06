@@ -43,26 +43,11 @@ public class Main {
                 arrayList.get(i).add(end);
             }
         }
-
         //전체 회의를 종료 시간 순으로 오름차순 정렬
         //종료시간이 같다면 시작 시간 빠른 것 우선
         //종료시간이 같은 경우를 체크하기 위해 종료시간을 시작 시간 변수에 저장해두고 종료시간 같은 경우가 오면 비교
-//        int min = arrayList.get(0).get(1);
-//        int temp = 0;
-//        int s2 = 0;
-//        int e2 = 0;
-//        for (int i = 0; i < arrayList.size() - 1; i++) {
-//            e2 = arrayList.get(i + 1).get(1); //종료 시간
-//            s2 = arrayList.get(i + 1).get(0); //시작 시간
-//            //선택된 회의 종료 시간이 최소 종료시간 보다 작다면
-//            //해당 행 결과리스트에 저장
-//            if (min > e2) {
-//                resultList.add(arrayList.get(i + 1));
-//            }
-//        }
         //가장 첫 번째 종료 회의를 인덱스에 넣어줌
         resultList.add(arrayList.get(0));
-
         //종료 시간 같은 경우, 시작 시간 빠른 순으로 정렬
         //Comparator 사용해야 함
         Collections.sort(arrayList, new Comparator<ArrayList<Integer>>() {
@@ -93,24 +78,6 @@ public class Main {
             }
         }
         System.out.println(count + 1);
-
-//        for (int i = 1; i < arrayList.size() ; i++) {
-//            //항상 선택된 회의의 맨 마지막 기준
-//            int len = resultList.size();
-//            int e1 = resultList.get(len - 1).get(1);
-//
-//            for (int j = 1; j < arrayList.size(); j++) {
-//
-//                int s1 = arrayList.get(j).get(0);
-//                if (s1 >= e1) {
-//                    count++;
-//                    resultList.add(arrayList.get(j));
-//                    break;
-//                }
-//            }
-//        }
-
-
     }
 }
 

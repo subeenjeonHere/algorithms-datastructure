@@ -64,7 +64,7 @@ public class Main2 {
                 }
                 if (graph[newX][newY] == 1 && !visit[newX][newY]) {
                     visit[newX][newY] = true;
-                     // 중요 최단 경로
+                    // 중요 최단 경로
                     // 현재 노드 기준으로 인접 노드 최단경로 계산
                     // 현재 노드까지의 최단 경로에 + 1 -> 인접 노드까지 경로 갱신
                     graph[newX][newY] = graph[nowNode[0]][nowNode[1]] + 1;

@@ -28,21 +28,9 @@ public class Main {
             }
             if (n == 3) {
                 sb.append("4").append("\n");
-                //continue;
+
             }
-            if (n > 3) {
-                dp = new int[n + 1];
 
-                for (int i = 4; i <= n; i++) {
-
-                    dp[1] = 1;
-                    dp[2] = 2;
-                    dp[3] = 4;
-
-                    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
-                }
-                sb.append(dp[n]).append("\n");
-            }
 
         }
 

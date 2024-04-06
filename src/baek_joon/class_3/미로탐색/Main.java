@@ -40,6 +40,8 @@ public class Main {
                 g[i][j] = Integer.parseInt(node[j]);
             }
         }
+
+
         System.out.print(bfs(0, 0) + 1);
     }
 

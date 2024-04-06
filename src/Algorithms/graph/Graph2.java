@@ -8,9 +8,9 @@ import java.util.Scanner;
  */
 class Graphs {
 
-    ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
     //Vertex 정점
-    int V;
+    static int V;
 
     Graphs(int nodes) {
         V = nodes;
@@ -28,7 +28,7 @@ class Graphs {
         graph.get(n).add(v);
     }
 
-    void pringGraph() {
+    static void printGraph() {
         for (int i = 0; i < V; i++) {
             System.out.printf("Node : ");
             for (int x = 0; i < graph.get(i).size(); i++) {
@@ -48,6 +48,7 @@ public class Graph2 {
         int i = 1;
         int i2 = 1;
         graphs.putEdge(i++, i2++);
+        Graphs.printGraph();
 
 
     }

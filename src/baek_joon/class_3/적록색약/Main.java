@@ -3,9 +3,6 @@ package baek_joon.class_3.적록색약;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.SortedMap;
 import java.util.Stack;
 
 
@@ -25,8 +22,6 @@ public class Main {
     static String[][] g;
     //방문배열
     static boolean[][] visit;
-    //카운트 변수 n0, n1
-    static int n0, n1;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -65,7 +60,6 @@ public class Main {
                 }
             }
         }
-
         System.out.print(n0 + " " + n1);
     }
 
@@ -126,16 +120,6 @@ public class Main {
             }
         }
     }
-//스택 선언
-//시작 노드 삽입, 방문 체크
-//for 0 - 2
-//while 스택 비어있지않으면
-//now = stk.peek
-//4방탐색
-// nX = now.getX, nY = now.getY
-//첫번째 만약 4방탐색 결과 r,g,b
-//now와 같으면 방문 체크 dfs call
-//카운트 0일 때 n0, 1일때 n1
 
     //pair
     public static class Point {
@@ -155,3 +139,13 @@ public class Main {
         }
     }
 }
+//스택 선언
+//시작 노드 삽입, 방문 체크
+//for 0 - 2
+//while 스택 비어있지않으면
+//now = stk.peek
+//4방탐색
+// nX = now.getX, nY = now.getY
+//첫번째 만약 4방탐색 결과 r,g,b
+//now와 같으면 방문 체크 dfs call
+//카운트 0일 때 n0, 1일때 n1

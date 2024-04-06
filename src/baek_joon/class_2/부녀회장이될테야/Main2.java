@@ -30,6 +30,7 @@ public class Main2 {
             for (int q = 0; q < dp.length; q++) {
                 dp[q][0] = 1;
             }
+
             for (int p = 1; p < dp.length; p++) {
                 for (int q = 1; q < dp[0].length; q++) {
 

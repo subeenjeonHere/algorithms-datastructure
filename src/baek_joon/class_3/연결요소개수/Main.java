@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * - 간선 정보 주어지지 않았다고 노드가 없는 게 아님, 문제에서 Node는 무조건 1부터 시작한다는 걸 간과함
  */
 public class Main {
-
     static ArrayList<ArrayList<Integer>> g;
     static boolean visit[];
     static int n, m;
@@ -33,7 +32,6 @@ public class Main {
         g = new ArrayList<>();
 
         //노드 개수 만큼 각 arraylist 초기화
-
         for (int i = 0; i <= n; i++) {
             g.add(i, new ArrayList<>());
         }
@@ -74,8 +72,7 @@ public class Main {
 
         if (m == 0) {
             System.out.print(n);
-        } else
-        {
+        } else {
             System.out.print(count + subNode);
         }
 

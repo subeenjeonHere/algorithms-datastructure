@@ -75,7 +75,6 @@ public class Main {
                 }
                 if (!visit[newNode]) {
                     visit[newNode] = true;
-
                     q.add(new Dis(newNode, nowDis + 1));
                 }
 
