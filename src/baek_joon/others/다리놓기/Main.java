@@ -22,6 +22,7 @@ public class Main {
             m = Integer.parseInt(nm[1]);
 
 
+
             //Dp 생성
             dp = new int[n + 1][m + 1];
             //N 1개일 때 초기화
