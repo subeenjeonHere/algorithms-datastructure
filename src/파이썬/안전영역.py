@@ -1,29 +1,29 @@
+# 방문배열 또 초기화 안해줌
+# 파이썬 재귀 메모리 초과
+
 import sys
 
-sys.setrecursionlimit(100000)
+sys.setrecursionlimit(10 ** 4)
 
 n = int(input())
 g = list()
 mx = list()
 # 인접행렬 만들기
-# for i in range(n):
-#     row = list(map(int, input().split()))
-#     mx.append(max(row))
-#     g.append(row)
+for i in range(n):
+    row = list(map(int, input().split()))
+    mx.append(max(row))
+    g.append(row)
 # print(g)
 
-g = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-mx = [max(row) for row in g]
-print(g)
-print(mx)
+# g = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+# mx = [max(row) for row in g]
+# print(g)
+# print(mx)
 maxVal = max(mx)
 
 # 노드 최댓값
 # maxVal = max(mx)
 # print(maxVal)
-
-# 방문 배열
-# visit = [[False for _ in range(n)] for _ in range(n)]
 
 start = 1
 
@@ -58,7 +58,10 @@ for start in range(1, maxVal):
             if g[i][j] > start and visit[i][j] == False:
                 dfs(i, j, start)
                 count += 1
-                print(visit)
+                # print(visit)
     area.append(count)
 
-print(max(area))
+if len(area) == 0:
+    print("1")
+else:
+    print(max(area))
