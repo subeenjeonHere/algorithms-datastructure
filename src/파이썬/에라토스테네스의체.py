@@ -11,16 +11,6 @@ for i in range(len(li)):
         continue
     p = li[i]
     for j in range(i, len(li)):
-        # if j == le:
-        #     continue
-        # if li[j] % p == 0:
-        #     print("Li[j]", li[j])
-        #     cnt += 1
-        #     if cnt == k:
-        #         print(li[j])
-        #
-        #     li.remove(li[j])
-        #     le = len(li)
         ele = li[j]
         if li[j] % p == 0 and li[j] != 0:
             cnt += 1
