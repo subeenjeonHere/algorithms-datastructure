@@ -15,16 +15,14 @@ public class Main {
 
         tc = Integer.parseInt(br.readLine());
 
-
         for (int i = 0; i < tc; i++) {
             String[] nm = br.readLine().split(" ");
-            n = Integer.parseInt(nm[0]);
-            m = Integer.parseInt(nm[1]);
-
-
+            n = Integer.parseInt(nm[0]); // 서쪽
+            m = Integer.parseInt(nm[1]); // 동쪽
 
             //Dp 생성
             dp = new int[n + 1][m + 1];
+
             //N 1개일 때 초기화
 
             for (int j = 1; j <= m; j++) {
@@ -33,7 +31,6 @@ public class Main {
                     dp[h][h] = 1;
                 }
             }
-
             for (int p = 2; p < dp.length; p++) {
                 for (int q = 3; q < dp[p].length; q++) {
                     dp[p][q] = dp[p][q - 1] + dp[p - 1][q - 1];
@@ -42,7 +39,5 @@ public class Main {
             sb.append(dp[n][m]).append("\n");
         }
         System.out.print(sb.toString().trim());
-
-
     }
 }
