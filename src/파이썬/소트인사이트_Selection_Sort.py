@@ -1,3 +1,4 @@
+# Selectio Sort
 def selectionSort(li):
     for i in range(0, len(li)):
         min_idx = i

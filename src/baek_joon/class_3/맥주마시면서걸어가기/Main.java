@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -75,9 +74,7 @@ public class Main {
             for (int s = 0; s < list.size(); s++) {
                 int x2 = list.get(s).x; // 다음 좌표 x 값
                 int y2 = list.get(s).y; // 다음 좌표 y 값
-                int temp = x2 + y2;
                 dist = Math.abs(nX - x2) + Math.abs(nY - y2);
-//                dis = Math.abs(curX - x2) + Math.abs(curY - y2);
                 if (dist <= 1000 && !visited[s]) {
                     visited[s] = true;
                     que.add(new Point(s, s));
@@ -86,7 +83,6 @@ public class Main {
         }
         return 0;
     }
-
 
     public static class Point {
         private final int x, y;
